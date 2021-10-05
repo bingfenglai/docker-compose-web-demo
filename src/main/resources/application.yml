@@ -1,0 +1,9 @@
+server:
+  port: 80
+spring:
+  application:
+    name: web-demo
+  redis:
+    host: ${CLOUD-REDIS:redis-cloud}
+    port: ${REDIS-PORT:6379}
+    password: ${REDIS-PASSWORD:12345678}

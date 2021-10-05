@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  redis-cloud:
+    image: redis:6.0
+    ports:
+      - 6379:6379
+    restart: always
+    container_name: redis-cloud
+    hostname: redis-cloud
+
+  web-app:
+    image: web-app
+    build:
+      context: ./
+    restart: always
+    depends_on:
+      - redis-cloud
+    ports:
+      - 80:80
+    container_name: web-app
